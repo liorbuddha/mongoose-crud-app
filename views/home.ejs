@@ -1,0 +1,64 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/js.js"></script>
+    <link rel="stylesheet" href="/css.css" />
+  </head>
+  <body>
+    <header>
+      <h1>home page</h1>
+    </header>
+    <hr />
+    <main>
+      <div class="displayWindow">
+        <!-- display all users from DB -->
+        <h2 class="h2">users list</h2>
+        <hr>
+        <% data.forEach(item=>{%>
+        <p>
+          Name: <%= item.name%> Email: <%= item.email%> Phone: <%= item.phone%>
+        </p>
+        <h2><%= item._id%></h2>
+
+        <div class="PersonBtns">
+          <form action="/deleteOneUser" method="post">
+            <button name="userToDelete" value="<%=item._id%>" type="submit">
+              detele me
+            </button>
+          </form>
+          <form action="/updateUser" method="get">
+            <button name="userToUpdate" value="<%=item._id%>" type="submit">
+              update me
+            </button>
+          </form>
+        </div>
+        <% });%>
+      </div>
+      <div class="insertNewForm">
+        <h2 class="h2">add new user</h2>
+        <hr>
+        <!-- new user form -->
+        <form action="/" method="POST">
+          <label for="name">Name</label>
+          <input type="text" name="name" placeholder="Name" />
+          <label for="email">Email</label>
+          <input type="text" name="email" placeholder="Email" />
+          <label for="phone">Phone</label>
+          <input type="text" name="phone" placeholder="Phone" />
+          <label for="password">Password</label>
+          <input type="text" name="password" placeholder="Password" />
+          <button type="submit">Submit</button>
+        </form>
+        <form action="/removeAllDataFromCollection" method="post">
+          <button type="submit">deleteAll</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

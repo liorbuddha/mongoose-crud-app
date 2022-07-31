@@ -1,0 +1,22 @@
+/** @format */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  width: min(65%, 650px);
+  margin: 0 auto;
+}
+input {
+  display: block;
+}
+.displayWindow,
+.insertNewForm {
+  padding: 1.2em;
+}
+.h2 {
+  color: #dcf291;
+}
