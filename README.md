@@ -6,6 +6,7 @@ display data from mongoDB server with fetch
 
 ------------
 npm install
+------------
 node app
 ------------
 runs on port 3000
